@@ -1550,6 +1550,12 @@
                         <b:with value='data:post.body.split("data-embed=\"")[1].split("\"")[0]' var='videoId'>
                           <div class='video' expr:data-embed='data:videoId'/>
                         </b:with>
+                      <b:else/>
+                        <b:if cond='data:post.body contains "youtube.com/embed/"'>
+                           <b:with value='data:post.body.split("youtube.com/embed/")[1].split("?")[0].split("\"")[0]' var='videoId'>
+                             <div class='video' expr:data-embed='data:videoId'/>
+                           </b:with>
+                        </b:if>
                       </b:if>
                     </div>
                   </div>
@@ -2062,12 +2068,6 @@ if(a.toLowerCase().includes("episode")){
   var epNum = parts[1] ? "Episode " + parts[1].trim() : "";
   displayTitle = animeTitle + " - " + epNum;
 }
-var displayTitle = a;
-if(a.toLowerCase().includes("episode")){
-  var parts = a.toLowerCase().split("episode");
-  var epNum = parts[1] ? "Episode " + parts[1].trim() : "";
-  displayTitle = animeTitle + " - " + epNum;
-}
 o+='<a class="episode-item-vertical'+activeClass+'" href="'+epUrl+'"><div class="ep-thumb-vertical"><img src="'+epThumb+'" alt="'+a+'"/></div><div class="ep-info-vertical"><div class="ep-title-vertical">'+displayTitle+'</div><div class="ep-meta-vertical"><span class="ep-label">'+animeTitle+'</span><span class="ep-time">'+epDate+'</span></div></div></a>'}m.innerHTML=o+="</div>"},msRandomIndex=function(e){a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/default"+l+"?alt=json-in-script&orderby=published&start-index=1&max-results=500&callback=msRelatedPosts")},a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/summary"+l+"?alt=json-in-script&orderby=published&max-results=0&callback=msRandomIndex")}();
 //]]>	  
 </script>
@@ -2077,18 +2077,32 @@ o+='<a class="episode-item-vertical'+activeClass+'" href="'+epUrl+'"><div class=
 <script type='text/javascript'>//<![CDATA[
 (function() {
   var v = document.getElementsByClassName("video");
-  for (var n = 0; n < v.length; n++) {
-    var p = document.createElement("div");
-    p.innerHTML = '<img class="lazyload" src="https://i.ytimg.com/vi/' + v[n].dataset.embed + '/sddefault.jpg">';
-    p.onclick = function() {
-      var s = document.createElement("iframe");
-      s.setAttribute("allowfullscreen", "");
-      s.setAttribute("frameborder", "0");
-      s.setAttribute("src", "https://www.youtube.com/embed/" + this.parentNode.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
-      this.parentNode.innerHTML = "";
-      this.parentNode.appendChild(s);
-    };
-    v[n].appendChild(p);
+  if (v.length > 0) {
+    for (var n = 0; n < v.length; n++) {
+      var embedId = v[n].getAttribute("data-embed");
+      if (embedId) {
+        var p = document.createElement("div");
+        p.style.position = "relative";
+        p.style.cursor = "pointer";
+        p.innerHTML = '<img class="lazyload" src="https://i.ytimg.com/vi/' + embedId + '/sddefault.jpg" style="width:100%;height:100%;object-fit:cover;">';
+        p.innerHTML += '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;background:url('data:image/svg+xml,<svg viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\\自><path d=\'M8 5v14l11-7z\' fill=\'%23fff\'></path></svg>') no-repeat;"></div>';
+        p.onclick = function() {
+          var id = this.parentNode.getAttribute("data-embed");
+          var s = document.createElement("iframe");
+          s.setAttribute("allowfullscreen", "");
+          s.setAttribute("frameborder", "0");
+          s.setAttribute("src", "https://www.youtube.com/embed/" + id + "?rel=0&showinfo=0&autoplay=1");
+          s.style.width = "100%";
+          s.style.height = "100%";
+          s.style.position = "absolute";
+          s.style.top = "0";
+          s.style.left = "0";
+          this.parentNode.innerHTML = "";
+          this.parentNode.appendChild(s);
+        };
+        v[n].appendChild(p);
+      }
+    }
   }
 })();
 //]]>

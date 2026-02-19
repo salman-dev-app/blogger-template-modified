@@ -1440,15 +1440,16 @@
           </div>
           <script type='text/javascript'>
             //<![CDATA[
-            (function() {
+            window.initRelatedEpisodes = function() {
               var relatedContainer = document.getElementById('temabanua-related-posts');
+              if (!relatedContainer) return;
+              
               var labels = [];
               <b:loop values='data:post.labels' var='label'>
                 labels.push("<data:label.name/>");
               </b:loop>
               
               if (labels.length > 0) {
-                // Use the first label for related episodes (usually the series name)
                 var label = labels[0];
                 var script = document.createElement('script');
                 script.src = '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json-in-script&callback=renderRelatedEpisodes&max-results=100';
@@ -1456,7 +1457,13 @@
               } else {
                 relatedContainer.innerHTML = '<div class="no-posts">No episodes found.</div>';
               }
-            })();
+            };
+            
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', window.initRelatedEpisodes);
+            } else {
+              window.initRelatedEpisodes();
+            }
 
             window.renderRelatedEpisodes = function(json) {
               var container = document.getElementById('temabanua-related-posts');
@@ -1465,7 +1472,7 @@
                 return;
               }
 
-              var currentUrl = window.location.href.split('?')[0].split('#')[0];
+              var currentUrl = window.location.href.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '');
               var html = '';
               
               // Sort entries by published date (oldest first for episode order)
@@ -1484,7 +1491,8 @@
                 }
 
                 // We show all episodes except the current one
-                if (url !== currentUrl) {
+                var normalizedUrl = url.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '');
+                if (normalizedUrl !== currentUrl) {
                   var thumb = entry.media$thumbnail ? entry.media$thumbnail.url.replace('s72-c', 'w400-h225-c') : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1j9wWJpidbO64eUrGfG-EHUWMu02q0PcTMTAwy0LLzexubqygOa5Xg6whkP-dW2BDbJFu88lCVRZHpGeA4_8oTVZOrk5nq5lGNanAc230aBlciHSbjY5i09USRpzLCIyt3Ley9IRrtjaC2sLeEqRNjfxf34coh32GBIRMKxQELMHqB1V5BLTVYyGTy5Br/s0/favicon.png';
                   
                   html += '<div class="index-post">';

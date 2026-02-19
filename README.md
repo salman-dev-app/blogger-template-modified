@@ -40,3 +40,8 @@ The homepage sections are now organized in the following order:
 ## License
 Free Version - https://www.temabanua.com/p/licenses.html
 
+
+### 5. New Features from Reference Site
+- Added **Favourite Button** in the header with a counter.
+- Implemented **Professional Episode List** on post pages with thumbnails, labels, and local time formatting.
+- Improved episode sorting in the related list (numerical sorting).

@@ -146,8 +146,11 @@
   border-radius: 4px;
   transition: background 0.2s;
 }
-.episode-item-vertical:hover {
+.episode-item-vertical:hover, .episode-item-vertical.active {
   background: rgba(255, 255, 255, 0.05);
+}
+.episode-item-vertical.active .ep-title-vertical {
+  color: var(--main-color, #e50914);
 }
 .ep-thumb-vertical {
   flex: 0 0 80px;
@@ -167,6 +170,30 @@
   flex-direction: column;
   justify-content: center;
   min-width: 0;
+}
+.temabanua-save {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.item-link-number {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--main-color, #e50914);
+  color: #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+.item-link-number i {
+  font-style: normal;
 }
 .ep-title-vertical {
   font-size: 14px;
@@ -302,6 +329,9 @@
           <b:includable id='icon-whatsapp'><svg height='24' viewBox='0 0 24 24' width='24'><path d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07s.89 2.39 1 2.56c.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z'/></svg></b:includable>
           <b:includable id='icon-telegram'><svg height='24px' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;' version='1.1' width='24px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:serif='http://www.serif.com/' xmlns:xlink='http://www.w3.org/1999/xlink'><path d='M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z' id='telegram-1'/></svg></b:includable>
           <b:includable id='icon-email'><svg height='24' viewBox='0 0 24 24' width='24'><path d='m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6a2 2 0 0 0-2-2Z'/></svg></b:includable>
+        <b:includable id='icon-bookmark'>
+          <svg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M17 18.113l-3.256-2.326A2.989 2.989 0 0 0 12 15.228c-.629 0-1.232.194-1.744.559L7 18.113V4h10v14.113zM18 2H6a1 1 0 0 0-1 1v17.056c0 .209.065.412.187.581a.994.994 0 0 0 1.394.233l4.838-3.455a1 1 0 0 1 1.162 0l4.838 3.455A1 1 0 0 0 19 20.056V3a1 1 0 0 0-1-1z' fill='currentColor'/></svg>
+        </b:includable>
           <b:includable id='icon-line-chat'><svg fill='currentColor' height='16' viewBox='0 0 16 16' width='16'>
   <path d='M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0ZM5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.154.154 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157Zm.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156h-.562Zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832a.17.17 0 0 0-.013-.015v-.001a.139.139 0 0 0-.01-.01l-.003-.003a.092.092 0 0 0-.011-.009h-.001L7.88 4.79l-.003-.002a.029.029 0 0 0-.005-.003l-.008-.005h-.002l-.003-.002-.01-.004-.004-.002a.093.093 0 0 0-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.154.154 0 0 0 .039.038l.001.001.01.006.004.002a.066.066 0 0 0 .008.004l.007.003.005.002a.168.168 0 0 0 .01.003h.003a.155.155 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156h-.561Zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.155.155 0 0 0-.108.044h-.001l-.001.002-.002.003a.155.155 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.155.155 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z'/>
 </svg></b:includable>
@@ -561,6 +591,16 @@
   </form>
    </div>
                   <div class='search-close'/>
+         </div>
+         <div class='icon-link'>
+           <label aria-label='Favourite' class='item-flex temabanua-save' for='showBookmark'>
+             <div class='icon-svg-head item-link-icon'>
+               <b:include name='icon-bookmark'/>
+             </div>
+             <div class='item-link-number'>
+               <span><i>0</i></span>
+             </div>
+           </label>
          </div>
        <b:loop values='data:links' var='link'>
        <div class='icon-link'>
@@ -1932,7 +1972,7 @@ var _$_2e1b=["\x33\x36\x38\x32\x33\x30\x38\x45\x46\x4F\x6B\x46\x51","\x32\x39\x3
 !function(){Array.prototype.remove=function(){for(var d,c,b=arguments,f=b.length;f&&this.length;){for(d=b[--f];-1!==(c=this.indexOf(d));){this.splice(c,1)}}return this};var a=document.createElement("script");a.src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js",a.onload=function(){firebase.initializeApp({apiKey:"AIzaSyD_MvMvRLs8CqwZ2k4c-Seic5ZBr2D1Zw8",databaseURL:"https://bloggerku-com.firebaseio.com",projectId:"bloggerku-com"}),function(h){for(var f=document.getElementsByClassName("item-icon-likes"),d=0,j=f[d];d<f.length;d++){var b=j.getAttribute("data-id"),g=JSON.parse(localStorage.getItem("liked"))||[],k=0;h.ref("like/"+b+"/total").on("value",function(c){-1!==g.indexOf(b)&&j.querySelector(".icon-like-firebase").classList.add("active"),k=c.val()||0,j.querySelector(".total").innerText=k}),j.querySelector(".like-items").addEventListener("click",function(){j.querySelector(".icon-like-firebase").classList.toggle("active"),j.querySelector(".icon-like-firebase").classList.contains("active")?(g.push(b),localStorage.setItem("liked",JSON.stringify(g)),k++):(g.remove(b),localStorage.setItem("liked",JSON.stringify(g)),k--),h.ref("like/"+b+"/total").set(k)})}}(firebase.database())},document.body.append(a)}();
 
 /* Related post */
-var temabanuaSetting,msRelatedPosts,msRandomIndex;!function(){"use strict";var e,v={postUrl:"https://temabanua.co.id",homePageUrl:"https://temabanua.co.id",relatedTitleOuterOpen:'<div class="related-title"><h3 class="title">',relatedTitleOuterClose:"</h3></div>",relatedTitleText:"Episode List",thumbWidth:320,thumbHeight:180,imgBlank:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAD6AAAA+gBtXtSawAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAYSURBVCiRY0xISOBgoAAwUaJ51IBhYwAAuQABOsYCprwAAAAASUVORK5CYII=",relatedOuter:"ms-related-post"};for(e in relatedConfig)"undefined"!=relatedConfig[e]&&(v[e]=relatedConfig[e]);var t,b={relatedPosts:!0,jumlahRelatedPosts:500,relatedPostsThumb:!0,judulRelatedPosts:v.relatedTitleText,relatedPostsNoThumbImg:"https://1.bp.blogspot.com/-aR5w9KXuWGU/XhSDNRAVuhI/AAAAAAAAHG8/dLxcaZxSgh0v85JG0mWRMQyEwqMgpL1_gCLcBGAsYHQ/w320-h180-c/no-image.jpg"};for(t in temabanuaSetting)"undefined"!=temabanuaSetting[t]&&(b[t]=temabanuaSetting[t]);function a(e){var t=document.createElement("script");t.src=e,document.getElementsByTagName("head")[0].appendChild(t)}function w(e){var t,a,l=e.length;if(0===l)return!1;for(;--l;)t=Math.floor(Math.random()*(l+1)),a=e[l],e[l]=e[t],e[t]=a;return e}var l="object"==typeof postLabels&&0<postLabels.length?"/-/"+postLabels[0]:"";msRelatedPosts=function(e){var t,a,o=v.relatedTitleOuterOpen+b.judulRelatedPosts+v.relatedTitleOuterClose,m=document.getElementById(v.relatedOuter),h=e.feed.entry;if(!h||!m)return;h.sort(function(x,y){return x.title.$t.localeCompare(y.title.$t,undefined,{numeric:true,sensitivity:"base"})});o+='<div class="episode-list-vertical">';for(var g=0;g<h.length;g++){a=h[g].title.$t;var epUrl="#",epThumb="";for(var p=0,A=h[g].link.length;p<A;p++)if("alternate"==h[g].link[p].rel){epUrl=h[g].link[p].href;break}for(var p=0,A=h[g].link.length;p<A;p++)if("image"==h[g].link[p].rel){epThumb=h[g].link[p].href;break}if(!epThumb&&h[g].media$thumbnail){epThumb=h[g].media$thumbnail.url}if(epUrl!=v.postUrl){var epDate="";if(h[g].published){var pubDate=new Date(h[g].published.$t);var hours=pubDate.getHours();var mins=pubDate.getMinutes();var ampm=hours>=12?"PM":"AM";hours=hours%12;hours=hours?hours:12;mins=mins<10?"0"+mins:mins;epDate=hours+":"+mins+" "+ampm}o+='<a class="episode-item-vertical" href="'+epUrl+'"><div class="ep-thumb-vertical"><img src="'+epThumb+'" alt="'+a+'"/></div><div class="ep-info-vertical"><div class="ep-title-vertical">'+a+'</div><div class="ep-meta-vertical"><span class="ep-label">'+postLabels[0]+'</span><span class="ep-time">'+epDate+'</span></div></div></a>'}}m.innerHTML=o+="</div>"},msRandomIndex=function(e){var total=parseInt(e.feed.openSearch$totalResults.$t)||1;a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/default"+l+"?alt=json-in-script&orderby=published&start-index=1&max-results=500&callback=msRelatedPosts")},a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/summary"+l+"?alt=json-in-script&orderby=published&max-results=0&callback=msRandomIndex")}();
+var temabanuaSetting,msRelatedPosts,msRandomIndex;!function(){"use strict";var e,v={postUrl:"https://temabanua.co.id",homePageUrl:"https://temabanua.co.id",relatedTitleOuterOpen:'<div class="related-title"><h3 class="title">',relatedTitleOuterClose:"</h3></div>",relatedTitleText:"Episode List",thumbWidth:320,thumbHeight:180,imgBlank:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAD6AAAA+gBtXtSawAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAYSURBVCiRY0xISOBgoAAwUaJ51IBhYwAAuQABOsYCprwAAAAASUVORK5CYII=",relatedOuter:"ms-related-post"};for(e in relatedConfig)"undefined"!=relatedConfig[e]&&(v[e]=relatedConfig[e]);var t,b={relatedPosts:!0,jumlahRelatedPosts:500,relatedPostsThumb:!0,judulRelatedPosts:v.relatedTitleText,relatedPostsNoThumbImg:"https://1.bp.blogspot.com/-aR5w9KXuWGU/XhSDNRAVuhI/AAAAAAAAHG8/dLxcaZxSgh0v85JG0mWRMQyEwqMgpL1_gCLcBGAsYHQ/w320-h180-c/no-image.jpg"};for(t in temabanuaSetting)"undefined"!=temabanuaSetting[t]&&(b[t]=temabanuaSetting[t]);function a(e){var t=document.createElement("script");t.src=e,document.getElementsByTagName("head")[0].appendChild(t)}function w(e){var t,a,l=e.length;if(0===l)return!1;for(;--l;)t=Math.floor(Math.random()*(l+1)),a=e[l],e[l]=e[t],e[t]=a;return e}var l="object"==typeof postLabels&&0<postLabels.length?"/-/"+postLabels[0]:"";msRelatedPosts=function(e){var t,a,o=v.relatedTitleOuterOpen+b.judulRelatedPosts+v.relatedTitleOuterClose,m=document.getElementById(v.relatedOuter),h=e.feed.entry;if(!h||!m)return;h.sort(function(x,y){var tx=x.title.$t.toLowerCase(),ty=y.title.$t.toLowerCase();if(tx.includes("episode")&&ty.includes("episode")){var ex=parseInt(tx.split("episode")[1]),ey=parseInt(ty.split("episode")[1]);if(!isNaN(ex)&&!isNaN(ey))return ex-ey}return tx.localeCompare(ty,undefined,{numeric:true,sensitivity:"base"})});o+='<div class="episode-list-vertical">';for(var g=0;g<h.length;g++){a=h[g].title.$t;var epUrl="#",epThumb="";for(var p=0,A=h[g].link.length;p<A;p++)if("alternate"==h[g].link[p].rel){epUrl=h[g].link[p].href;break}if(h[g].media$thumbnail){epThumb=h[g].media$thumbnail.url.replace("s72-c","w320-h180-c")}else{epThumb=v.imgBlank}var epDate="";if(h[g].published){var pubDate=new Date(h[g].published.$t);var hours=pubDate.getHours(),mins=pubDate.getMinutes(),ampm=hours>=12?"PM":"AM";hours=hours%12||12;mins=mins<10?"0"+mins:mins;epDate=hours+":"+mins+" "+ampm}var activeClass=(epUrl==v.postUrl)?" active":"";o+='<a class="episode-item-vertical'+activeClass+'" href="'+epUrl+'"><div class="ep-thumb-vertical"><img src="'+epThumb+'" alt="'+a+'"/></div><div class="ep-info-vertical"><div class="ep-title-vertical">'+a+'</div><div class="ep-meta-vertical"><span class="ep-label">'+(postLabels[0]||"Anime")+'</span><span class="ep-time">'+epDate+'</span></div></div></a>'}m.innerHTML=o+="</div>"},msRandomIndex=function(e){a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/default"+l+"?alt=json-in-script&orderby=published&start-index=1&max-results=500&callback=msRelatedPosts")},a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/summary"+l+"?alt=json-in-script&orderby=published&max-results=0&callback=msRandomIndex")}();
 //]]>	  
 </script>
     </b:if>

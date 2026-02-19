@@ -5,10 +5,14 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
     <style>
-      /* Circle Loading Animation */
-      #temabanua-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s, visibility 0.5s; }
-      #temabanua-loader.hidden { opacity: 0; visibility: hidden; }
-      .circle-loader { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--main-color, #e50914); border-radius: 50%; animation: spin 0.8s linear infinite; }
+      /* Element-Specific Lazy Loading Animation */
+      .widget--background-preload, .content-image-figure, #ms-related-post { position: relative; min-height: 50px; }
+      .widget--background-preload:before, .content-image-figure:before, #ms-related-post:empty:before {
+        content: ""; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px;
+        margin: -12px 0 0 -12px; border: 2px solid rgba(255,255,255,0.1);
+        border-top-color: var(--main-color, #e50914); border-radius: 50%;
+        animation: spin 0.6s linear infinite; z-index: 1;
+      }
       @keyframes spin { to { transform: rotate(360deg); } }
       
       /* Favourite List Styles */
@@ -25,10 +29,14 @@
       .bookmark-remove { position: absolute; top: 5px; right: 5px; cursor: pointer; color: #ff4444; font-size: 12px; }
     </style>
     <style>
-      /* Circle Loading Animation */
-      #temabanua-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s, visibility 0.5s; }
-      #temabanua-loader.hidden { opacity: 0; visibility: hidden; }
-      .circle-loader { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--main-color, #e50914); border-radius: 50%; animation: spin 0.8s linear infinite; }
+      /* Element-Specific Lazy Loading Animation */
+      .widget--background-preload, .content-image-figure, #ms-related-post { position: relative; min-height: 50px; }
+      .widget--background-preload:before, .content-image-figure:before, #ms-related-post:empty:before {
+        content: ""; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px;
+        margin: -12px 0 0 -12px; border: 2px solid rgba(255,255,255,0.1);
+        border-top-color: var(--main-color, #e50914); border-radius: 50%;
+        animation: spin 0.6s linear infinite; z-index: 1;
+      }
       @keyframes spin { to { transform: rotate(360deg); } }
       
       /* Favourite List Styles */
@@ -478,7 +486,7 @@
   </head>
 
   <body>
-    <div id='temabanua-loader'><div class='circle-loader'/></div>
+
     <input class='hidden' id='showBookmark' type='checkbox'/>
     <div class='temabanua-bookmark'>
       <div class='bookmark-header'>
@@ -489,7 +497,7 @@
         <div class='no-bookmark' style='color:#666;text-align:center;margin-top:50px;'>No favourites yet.</div>
       </div>
     </div>
-    <div id='temabanua-loader'><div class='circle-loader'/></div>
+
     <input class='hidden' id='showBookmark' type='checkbox'/>
     <div class='temabanua-bookmark'>
       <div class='bookmark-header'>
@@ -2106,11 +2114,7 @@ var _$_2e1b=["\x33\x36\x38\x32\x33\x30\x38\x45\x46\x4F\x6B\x46\x51","\x32\x39\x3
   
   updateUI();
   
-  // Loader logic
-  window.addEventListener('load', function() {
-    const loader = document.getElementById('temabanua-loader');
-    if(loader) loader.classList.add('hidden');
-  });
+
 })();
 // Favourite System Logic
 (function() {
@@ -2177,11 +2181,7 @@ var _$_2e1b=["\x33\x36\x38\x32\x33\x30\x38\x45\x46\x4F\x6B\x46\x51","\x32\x39\x3
   
   updateUI();
   
-  // Loader logic
-  window.addEventListener('load', function() {
-    const loader = document.getElementById('temabanua-loader');
-    if(loader) loader.classList.add('hidden');
-  });
+
 })();
 //]]>	  
 	</script>

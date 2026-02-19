@@ -1045,125 +1045,6 @@
                     </b:section>
 
 
-                    <b:section class='container temabanua-main-home' cond='data:view.isHomepage' id='temabanua-home-popular' name='Widget Home Most Popular' showaddelement='yes'>
-                      <b:widget id='PopularPosts4' locked='false' title='Most Popular' type='PopularPosts' visible='true'>
-                        <b:widget-settings>
-                          <b:widget-setting name='numItemsToShow'>6</b:widget-setting>
-                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                          <b:widget-setting name='showSnippets'>false</b:widget-setting>
-                          <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-                        </b:widget-settings>
-                        <b:includable id='main' var='this'>
-      <div class='feed-header-title'>
-        <h2 class='title'><data:title/></h2>
-      </div>
-      <div class='owl-carousel owl-theme entry-slider'>
-            <b:loop index='i' values='data:posts' var='post'>
-              <b:include data='post' name='content'/>
-            </b:loop>
-      </div>
-    </b:includable>
-                        <b:includable id='blogThisShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='bylineByName' var='byline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='bylineRegion' var='regionItems'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='commentsLink'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='commentsLinkIframe'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='content' var='post'>
-      <b:include name='popular-content'/>
-    </b:includable>
-                        <b:includable id='emailPostIcon'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='facebookShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='footerBylines'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='googlePlusShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='headerByline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='linkShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='otherSharingButton'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='platformShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postAuthor'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postCommentsLink'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postJumpLink' var='post'>
-              <b:if cond='data:blog.jumpLinkMessage != "hide"'>
-                <a class='read-more' expr:href='data:post.url'><data:blog.jumpLinkMessage/></a>
-              </b:if>
-            </b:includable>
-                        <b:includable id='postLabels'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postLocation'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postReactions'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postShareButtons'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postTimestamp'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButton'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtonContent'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtons'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtonsMenu'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingPlatformIcon'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostByline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostContent'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostThumbnail'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostTitle'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPosts'><b:comment>Replaced</b:comment></b:includable>
-                      </b:widget>
-                    </b:section>
-
-                    <b:section class='container temabanua-main-home' cond='data:view.isHomepage' id='temabanua-home-latest-series' name='Widget Home Latest Series Season' showaddelement='yes'>
-                      <b:widget id='PopularPosts5' locked='false' title='Latest Series Season' type='PopularPosts' visible='true'>
-                        <b:widget-settings>
-                          <b:widget-setting name='numItemsToShow'>6</b:widget-setting>
-                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                          <b:widget-setting name='showSnippets'>false</b:widget-setting>
-                          <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-                        </b:widget-settings>
-                        <b:includable id='main' var='this'>
-      <div class='feed-header-title'>
-        <h2 class='title'><data:title/></h2>
-      </div>
-      <div class='owl-carousel owl-theme entry-slider'>
-            <b:loop index='i' values='data:posts' var='post'>
-              <b:include data='post' name='content'/>
-            </b:loop>
-      </div>
-    </b:includable>
-                        <b:includable id='blogThisShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='bylineByName' var='byline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='bylineRegion' var='regionItems'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='commentsLink'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='commentsLinkIframe'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='content' var='post'>
-      <b:include name='popular-content'/>
-    </b:includable>
-                        <b:includable id='emailPostIcon'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='facebookShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='footerBylines'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='googlePlusShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='headerByline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='linkShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='otherSharingButton'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='platformShare'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postAuthor'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postCommentsLink'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postJumpLink' var='post'>
-              <b:if cond='data:blog.jumpLinkMessage != "hide"'>
-                <a class='read-more' expr:href='data:post.url'><data:blog.jumpLinkMessage/></a>
-              </b:if>
-            </b:includable>
-                        <b:includable id='postLabels'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postLocation'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postReactions'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postShareButtons'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='postTimestamp'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButton'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtonContent'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtons'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingButtonsMenu'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='sharingPlatformIcon'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostByline'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostContent'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostThumbnail'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPostTitle'><b:comment>Replaced</b:comment></b:includable>
-                        <b:includable id='snippetedPosts'><b:comment>Replaced</b:comment></b:includable>
-                      </b:widget>
-                    </b:section>
-
-                    
 <b:section class='' id='temabanua-main-post' name='Main Post' showaddelement='false'>
                       <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
                         <b:widget-settings>
@@ -1696,6 +1577,125 @@
     </b:includable>
                       </b:widget>
                     </b:section>
+                    <b:section class='container temabanua-main-home' cond='data:view.isHomepage' id='temabanua-home-popular' name='Widget Home Most Popular' showaddelement='yes'>
+                      <b:widget id='PopularPosts4' locked='false' title='Most Popular' type='PopularPosts' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='numItemsToShow'>6</b:widget-setting>
+                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                          <b:widget-setting name='showSnippets'>false</b:widget-setting>
+                          <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main' var='this'>
+      <div class='feed-header-title'>
+        <h2 class='title'><data:title/></h2>
+      </div>
+      <div class='owl-carousel owl-theme entry-slider'>
+            <b:loop index='i' values='data:posts' var='post'>
+              <b:include data='post' name='content'/>
+            </b:loop>
+      </div>
+    </b:includable>
+                        <b:includable id='blogThisShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='bylineByName' var='byline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='bylineRegion' var='regionItems'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='commentsLink'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='commentsLinkIframe'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='content' var='post'>
+      <b:include name='popular-content'/>
+    </b:includable>
+                        <b:includable id='emailPostIcon'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='facebookShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='footerBylines'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='googlePlusShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='headerByline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='linkShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='otherSharingButton'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='platformShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postAuthor'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postCommentsLink'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postJumpLink' var='post'>
+              <b:if cond='data:blog.jumpLinkMessage != "hide"'>
+                <a class='read-more' expr:href='data:post.url'><data:blog.jumpLinkMessage/></a>
+              </b:if>
+            </b:includable>
+                        <b:includable id='postLabels'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postLocation'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postReactions'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postShareButtons'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postTimestamp'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButton'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtonContent'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtons'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtonsMenu'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingPlatformIcon'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostByline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostContent'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostThumbnail'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostTitle'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPosts'><b:comment>Replaced</b:comment></b:includable>
+                      </b:widget>
+                    </b:section>
+
+                    <b:section class='container temabanua-main-home' cond='data:view.isHomepage' id='temabanua-home-latest-series' name='Widget Home Latest Series Season' showaddelement='yes'>
+                      <b:widget id='PopularPosts5' locked='false' title='Latest Series Season' type='PopularPosts' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='numItemsToShow'>6</b:widget-setting>
+                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                          <b:widget-setting name='showSnippets'>false</b:widget-setting>
+                          <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main' var='this'>
+      <div class='feed-header-title'>
+        <h2 class='title'><data:title/></h2>
+      </div>
+      <div class='owl-carousel owl-theme entry-slider'>
+            <b:loop index='i' values='data:posts' var='post'>
+              <b:include data='post' name='content'/>
+            </b:loop>
+      </div>
+    </b:includable>
+                        <b:includable id='blogThisShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='bylineByName' var='byline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='bylineRegion' var='regionItems'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='commentsLink'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='commentsLinkIframe'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='content' var='post'>
+      <b:include name='popular-content'/>
+    </b:includable>
+                        <b:includable id='emailPostIcon'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='facebookShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='footerBylines'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='googlePlusShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='headerByline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='linkShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='otherSharingButton'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='platformShare'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postAuthor'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postCommentsLink'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postJumpLink' var='post'>
+              <b:if cond='data:blog.jumpLinkMessage != "hide"'>
+                <a class='read-more' expr:href='data:post.url'><data:blog.jumpLinkMessage/></a>
+              </b:if>
+            </b:includable>
+                        <b:includable id='postLabels'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postLocation'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postReactions'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postShareButtons'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='postTimestamp'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButton'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtonContent'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtons'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingButtonsMenu'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='sharingPlatformIcon'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostByline'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostContent'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostThumbnail'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPostTitle'><b:comment>Replaced</b:comment></b:includable>
+                        <b:includable id='snippetedPosts'><b:comment>Replaced</b:comment></b:includable>
+                      </b:widget>
+                    </b:section>
+
+                    
                     <b:section class='container temabanua-main-home' cond='data:view.isMultipleItems' id='temabanua-home-bottom' name='Widget Home Bottom' showaddelement='yes'/>
                     <b:section cond='data:view.isLayoutMode or (data:view.isPost and (data:widgets.HTML any w =&gt; w.sectionId == &quot;temabanua-entry-before-ad&quot;))' id='temabanua-entry-before-ad' maxwidgets='1' name='Before Ads Post' showaddelement='yes'>
                       <b:widget id='HTML0010' locked='true' title='{ads}' type='HTML' version='2' visible='true'>

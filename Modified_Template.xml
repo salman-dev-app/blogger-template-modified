@@ -1450,12 +1450,14 @@
               </b:loop>
               
               if (labels.length > 0) {
-                var label = labels[0];
+                // Use the first label as the unique series identifier
+                var seriesLabel = labels[0];
                 var script = document.createElement('script');
-                script.src = '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json-in-script&callback=renderRelatedEpisodes&max-results=100';
+                // Fetch up to 150 posts to ensure we get all episodes
+                script.src = '/feeds/posts/default/-/' + encodeURIComponent(seriesLabel) + '?alt=json-in-script&callback=renderRelatedEpisodes&max-results=150';
                 document.body.appendChild(script);
               } else {
-                relatedContainer.innerHTML = '<div class="no-posts">No episodes found.</div>';
+                relatedContainer.innerHTML = '<div class="no-posts">No series label found.</div>';
               }
             };
             
@@ -1467,15 +1469,16 @@
 
             window.renderRelatedEpisodes = function(json) {
               var container = document.getElementById('temabanua-related-posts');
-              if (!json.feed.entry || json.feed.entry.length <= 1) {
-                container.innerHTML = '<div class="no-posts">No other episodes found.</div>';
+              if (!json.feed.entry) {
+                container.innerHTML = '<div class="no-posts">No episodes found.</div>';
                 return;
               }
 
-              var currentUrl = window.location.href.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '');
+              // Normalize current URL for comparison
+              var currentUrl = window.location.href.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '').replace(/\/$/, '');
               var html = '';
               
-              // Sort entries by published date (oldest first for episode order)
+              // Sort entries by published date (oldest first = Episode 1)
               var entries = json.feed.entry.sort(function(a, b) {
                 return new Date(a.published.$t) - new Date(b.published.$t);
               });
@@ -1490,27 +1493,32 @@
                   }
                 }
 
-                // We show all episodes except the current one
-                var normalizedUrl = url.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '');
-                if (normalizedUrl !== currentUrl) {
-                  var thumb = entry.media$thumbnail ? entry.media$thumbnail.url.replace('s72-c', 'w400-h225-c') : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1j9wWJpidbO64eUrGfG-EHUWMu02q0PcTMTAwy0LLzexubqygOa5Xg6whkP-dW2BDbJFu88lCVRZHpGeA4_8oTVZOrk5nq5lGNanAc230aBlciHSbjY5i09USRpzLCIyt3Ley9IRrtjaC2sLeEqRNjfxf34coh32GBIRMKxQELMHqB1V5BLTVYyGTy5Br/s0/favicon.png';
-                  
-                  html += '<div class="index-post">';
-                  html += '  <div class="content-image-box">';
-                  html += '    <a href="' + url + '"><img class="content-image-size" src="' + thumb + '" alt="' + title + '"/></a>';
-                  html += '  </div>';
-                  html += '  <div class="content-post-info">';
-                  html += '    <h2><a href="' + url + '">' + title + '</a></h2>';
-                  html += '    <div class="post-meta"><span style="background:var(--main-color);color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold;">Episode ' + (index + 1) + '</span></div>';
-                  html += '  </div>';
-                  html += '</div>';
-                }
+                var normalizedUrl = url.split('?')[0].split('#')[0].replace('http://', 'https://').replace('.html', '').replace(/\/$/, '');
+                
+                // Show all episodes in the series
+                var thumb = entry.media$thumbnail ? entry.media$thumbnail.url.replace('s72-c', 'w400-h225-c') : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1j9wWJpidbO64eUrGfG-EHUWMu02q0PcTMTAwy0LLzexubqygOa5Xg6whkP-dW2BDbJFu88lCVRZHpGeA4_8oTVZOrk5nq5lGNanAc230aBlciHSbjY5i09USRpzLCIyt3Ley9IRrtjaC2sLeEqRNjfxf34coh32GBIRMKxQELMHqB1V5BLTVYyGTy5Br/s0/favicon.png';
+                var activeClass = (normalizedUrl === currentUrl) ? ' active-episode' : '';
+                var episodeLabel = 'Episode ' + (index + 1);
+                
+                html += '<div class="index-post' + activeClass + '">';
+                html += '  <div class="content-image-box">';
+                html += '    <a href="' + url + '"><img class="content-image-size" src="' + thumb + '" alt="' + title + '"/></a>';
+                html += '  </div>';
+                html += '  <div class="content-post-info">';
+                html += '    <h2><a href="' + url + '">' + title + '</a></h2>';
+                html += '    <div class="post-meta"><span style="background:var(--main-color);color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:bold;text-transform:uppercase;">' + episodeLabel + '</span></div>';
+                html += '  </div>';
+                html += '</div>';
               });
 
               container.innerHTML = html || '<div class="no-posts">No other episodes found.</div>';
             };
             //]]>
           </script>
+          <style>
+            .active-episode { background: rgba(255,255,255,0.05); border-radius: 8px; }
+            .active-episode h2 a { color: var(--main-color) !important; }
+          </style>
         </div>
       </b:if>
     </b:includable>

@@ -40,6 +40,3 @@ The homepage sections are now organized in the following order:
 ## License
 Free Version - https://www.temabanua.com/p/licenses.html
 
-### 5. Professional Title Display
-- Added a filter to automatically hide "Episode X" or "episode X" from post titles on the homepage.
-- Titles remain full and include episode numbers on the individual post pages for a professional look.

@@ -324,7 +324,7 @@
       </b:if>
     </b:includable>
         <b:includable id='popular-content'>
-           <a class='post-image-link' expr:href='data:post.url.canonical' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
+           <a class='post-image-link' expr:href='data:post.url.canonical' expr:title='data:view.isHomepage ? (data:post.title ? (data:post.title contains &quot; Episode&quot; ? data:post.title.split(&quot; Episode&quot;)[0] : (data:post.title contains &quot; episode&quot; ? data:post.title.split(&quot; episode&quot;)[0] : data:post.title)) : data:messages.noTitle) : (data:post.title ? data:post.title : data:messages.noTitle)'>
              <div class='content-image-feed'>
                <div class='content-image-figure'>
                  <div class='content-image-background'>
@@ -341,7 +341,7 @@
                </div>
              </div>
         <div class='content-post-detail'>
-               <h3 class='entry-title'><b:eval expr='data:post.title ? data:post.title : data:messages.noTitle'/></h3>
+               <h3 class='entry-title'><b:eval expr='data:view.isHomepage ? (data:post.title ? (data:post.title contains &quot; Episode&quot; ? data:post.title.split(&quot; Episode&quot;)[0] : (data:post.title contains &quot; episode&quot; ? data:post.title.split(&quot; episode&quot;)[0] : data:post.title)) : data:messages.noTitle) : (data:post.title ? data:post.title : data:messages.noTitle)'/></h3>
           <div class='content-post-label'>
             <span><data:post.labels.last.name/></span>
           </div>
@@ -1346,7 +1346,7 @@
             </b:includable>
                         <b:includable id='postFeaturedImage' var='post'>
               <!-- Post Featured Image on Index -->
-                <a class='post-image-link' expr:href='data:post.url' expr:title='data:post.title'>
+                <a class='post-image-link' expr:href='data:post.url' expr:title='data:view.isHomepage ? (data:post.title contains &quot; Episode&quot; ? data:post.title.split(&quot; Episode&quot;)[0] : (data:post.title contains &quot; episode&quot; ? data:post.title.split(&quot; episode&quot;)[0] : data:post.title)) : data:post.title'>
                   <div class='content-image-box'>
                     <div class='content-image-figure'>
                   <div class='content-image-background'>
@@ -1475,7 +1475,7 @@
               <!-- Post Title Index and Item -->
               <b:if cond='data:view.isMultipleItems'>
                   <h2 class='post-title'>
-                  <a expr:href='data:post.url' expr:title='data:post.title'><data:post.title/></a>
+                  <a expr:href='data:post.url' expr:title='data:post.title'><b:eval expr='data:view.isHomepage ? (data:post.title contains &quot; Episode&quot; ? data:post.title.split(&quot; Episode&quot;)[0] : (data:post.title contains &quot; episode&quot; ? data:post.title.split(&quot; episode&quot;)[0] : data:post.title)) : data:post.title'/></a>
                 </h2>
               </b:if>
               <b:if cond='data:view.isSingleItem'>

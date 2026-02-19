@@ -473,13 +473,7 @@
    </div>
                   <div class='search-close'/>
          </div>
-         <div class='icon-link'>
-           <a class='item-flex temabanua-save' href='/search/label/Favourite' title='Favourite'>
-             <div class='icon-svg-head item-link-icon'>
-               <b:include name='icon-bookmark'/>
-             </div>
-           </a>
-         </div>
+
        <b:loop values='data:links' var='link'>
        <div class='icon-link'>
          <a expr:href='data:link.target' expr:title='data:link.name'>
@@ -1435,16 +1429,80 @@
                 <data:messages.newerPosts/>
               </a>
             </b:includable>
-                        <b:includable id='relatedpost'>
+                        <b:includable id='relatedpost' var='post'>
       <b:if cond='data:view.isPost'>
         <div class='temabanua-related-posts-wrap'>
           <div class='feed-header-title'>
             <h2 class='title'>Next Episode</h2>
           </div>
           <div class='temabanua-related-posts' id='temabanua-related-posts'>
-            <!-- Related posts will be loaded here by JavaScript -->
             <div class='loader'/>
           </div>
+          <script type='text/javascript'>
+            //<![CDATA[
+            (function() {
+              var relatedContainer = document.getElementById('temabanua-related-posts');
+              var labels = [];
+              <b:loop values='data:post.labels' var='label'>
+                labels.push("<data:label.name/>");
+              </b:loop>
+              
+              if (labels.length > 0) {
+                // Use the first label for related episodes (usually the series name)
+                var label = labels[0];
+                var script = document.createElement('script');
+                script.src = '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json-in-script&callback=renderRelatedEpisodes&max-results=10';
+                document.body.appendChild(script);
+              } else {
+                relatedContainer.innerHTML = '<div class="no-posts">No episodes found.</div>';
+              }
+            })();
+
+            window.renderRelatedEpisodes = function(json) {
+              var container = document.getElementById('temabanua-related-posts');
+              if (!json.feed.entry || json.feed.entry.length <= 1) {
+                container.innerHTML = '<div class="no-posts">No other episodes found.</div>';
+                return;
+              }
+
+              var currentUrl = window.location.href.split('?')[0].split('#')[0];
+              var html = '';
+              
+              // Sort entries by published date (oldest first for episode order)
+              var entries = json.feed.entry.sort(function(a, b) {
+                return new Date(a.published.$t) - new Date(b.published.$t);
+              });
+
+              entries.forEach(function(entry, index) {
+                var title = entry.title.$t;
+                var url = '';
+                for (var i = 0; i < entry.link.length; i++) {
+                  if (entry.link[i].rel === 'alternate') {
+                    url = entry.link[i].href;
+                    break;
+                  }
+                }
+
+                if (url !== currentUrl) {
+                  var thumb = entry.media$thumbnail ? entry.media$thumbnail.url.replace('s72-c', 'w400-h225-c') : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1j9wWJpidbO64eUrGfG-EHUWMu02q0PcTMTAwy0LLzexubqygOa5Xg6whkP-dW2BDbJFu88lCVRZHpGeA4_8oTVZOrk5nq5lGNanAc230aBlciHSbjY5i09USRpzLCIyt3Ley9IRrtjaC2sLeEqRNjfxf34coh32GBIRMKxQELMHqB1V5BLTVYyGTy5Br/s0/favicon.png';
+                  var date = new Date(entry.published.$t).toLocaleDateString();
+                  
+                  html += '<div class="index-post">';
+                  html += '  <div class="content-image-box">';
+                  html += '    <a href="' + url + '"><img class="content-image-size" src="' + thumb + '" alt="' + title + '"/></a>';
+                  html += '  </div>';
+                  html += '  <div class="content-post-info">';
+                  html += '    <h2><a href="' + url + '">' + title + '</a></h2>';
+                  html += '    <div class="post-meta"><span>Episode ' + (index + 1) + '</span></div>';
+                  html += '  </div>';
+                  html += '</div>';
+                }
+              });
+
+              container.innerHTML = html || '<div class="no-posts">No other episodes found.</div>';
+            };
+            //]]>
+          </script>
         </div>
       </b:if>
     </b:includable>
@@ -1859,66 +1917,6 @@ var _$_2e1b=["\x33\x36\x38\x32\x33\x30\x38\x45\x46\x4F\x6B\x46\x51","\x32\x39\x3
 
 // Favourite System Logic
 (function() {
-  const favBtn = document.getElementById('add-to-favourite');
-  const favList = document.getElementById('bookmark-list');
-  const favCount = document.querySelector('.item-link-number span');
-  
-  function getFavs() { return JSON.parse(localStorage.getItem('temabanua_favs') || '[]'); }
-  function saveFavs(favs) { 
-    localStorage.setItem('temabanua_favs', JSON.stringify(favs));
-    updateUI();
-  }
-  
-  function updateUI() {
-    const favs = getFavs();
-    if(favCount) favCount.innerText = favs.length;
-    
-    if(favs.length === 0) {
-      favList.innerHTML = '<div class="no-bookmark" style="color:#666;text-align:center;margin-top:50px;">No favourites yet.</div>';
-    } else {
-      favList.innerHTML = favs.map(item => `
-        <div class="bookmark-item">
-          <a href="${item.url}"><img src="${item.img}" alt="${item.title}"/></a>
-          <div class="bookmark-info">
-            <a href="${item.url}" class="bookmark-item-title">${item.title}</a>
-          </div>
-          <span class="bookmark-remove" onclick="removeFav('${item.id}')">✕</span>
-        </div>
-      `).join('');
-    }
-    
-    if(favBtn) {
-      const id = favBtn.getAttribute('data-id');
-      const isFav = favs.some(f => f.id === id);
-      favBtn.querySelector('span').innerText = isFav ? 'Remove Favourite' : 'Add to Favourite';
-      favBtn.style.background = isFav ? '#444' : 'var(--main-color)';
-    }
-  }
-  
-  window.removeFav = function(id) {
-    let favs = getFavs();
-    favs = favs.filter(f => f.id !== id);
-    saveFavs(favs);
-  };
-  
-  if(favBtn) {
-    favBtn.addEventListener('click', function() {
-      const id = this.getAttribute('data-id');
-      const title = this.getAttribute('data-title');
-      const url = this.getAttribute('data-url');
-      const img = this.getAttribute('data-img');
-      
-      let favs = getFavs();
-      const index = favs.findIndex(f => f.id === id);
-      
-      if(index === -1) {
-        favs.push({id, title, url, img});
-      } else {
-        favs.splice(index, 1);
-      }
-      saveFavs(favs);
-    });
-  }
   
   updateUI();
   
@@ -1930,56 +1928,6 @@ var _$_2e1b=["\x33\x36\x38\x32\x33\x30\x38\x45\x46\x4F\x6B\x46\x51","\x32\x39\x3
 <script type='text/javascript'>//<![CDATA[
 !function(){Array.prototype.remove=function(){for(var d,c,b=arguments,f=b.length;f&&this.length;){for(d=b[--f];-1!==(c=this.indexOf(d));){this.splice(c,1)}}return this};var a=document.createElement("script");a.src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js",a.onload=function(){firebase.initializeApp({apiKey:"AIzaSyD_MvMvRLs8CqwZ2k4c-Seic5ZBr2D1Zw8",databaseURL:"https://bloggerku-com.firebaseio.com",projectId:"bloggerku-com"}),function(h){for(var f=document.getElementsByClassName("item-icon-likes"),d=0,j=f[d];d<f.length;d++){var b=j.getAttribute("data-id"),g=JSON.parse(localStorage.getItem("liked"))||[],k=0;h.ref("like/"+b+"/total").on("value",function(c){-1!==g.indexOf(b)&&j.querySelector(".icon-like-firebase").classList.add("active"),k=c.val()||0,j.querySelector(".total").innerText=k}),j.querySelector(".like-items").addEventListener("click",function(){j.querySelector(".icon-like-firebase").classList.toggle("active"),j.querySelector(".icon-like-firebase").classList.contains("active")?(g.push(b),localStorage.setItem("liked",JSON.stringify(g)),k++):(g.remove(b),localStorage.setItem("liked",JSON.stringify(g)),k--),h.ref("like/"+b+"/total").set(k)})}}(firebase.database())},document.body.append(a)}();
 
-(function() {
-  var relatedPosts = document.getElementById('temabanua-related-posts');
-  if (relatedPosts) {
-    var labels = [];
-    <b:if cond='data:posts.first.labels'>
-      <b:loop values='data:posts.first.labels' var='label'>
-        labels.push(&quot;<data:label.name/>&quot;);
-      </b:loop>
-    </b:if>
-    if (labels.length > 0) {
-      var label = labels[Math.floor(Math.random() * labels.length)];
-      var script = document.createElement('script');
-      script.src = '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json-in-script&callback=loadRelatedPosts&max-results=5';
-      document.body.appendChild(script);
-    } else {
-      relatedPosts.innerHTML = '<div class="no-posts">No related episodes found.</div>';
-    }
-  }
-})();
-
-window.loadRelatedPosts = function(json) {
-  var relatedPosts = document.getElementById('temabanua-related-posts');
-  if (!json.feed.entry || json.feed.entry.length <= 1) {
-    relatedPosts.innerHTML = '<div class="no-posts">No related episodes found.</div>';
-    return;
-  }
-  
-  var currentUrl = &quot;<data:blog.url.canonical/>&quot;;
-  var html = '';
-  var count = 0;
-  
-  for (var i = 0; i < json.feed.entry.length; i++) {
-    var entry = json.feed.entry[i];
-    var title = entry.title.$t;
-    var url = '';
-    for (var k = 0; k < entry.link.length; k++) {
-      if (entry.link[k].rel == 'alternate') {
-        url = entry.link[k].href;
-        break;
-      }
-    }
-    
-    if (url === currentUrl) continue;
-    if (count >= 4) break;
-    
-    var thumb = entry.media$thumbnail ? entry.media$thumbnail.url.replace('s72-c', 'w640') : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuX6Oh-5b-UZQAGpAgrD9HUDEd6LvKHqN2eM6-HQTvj7puo4laJHxLegOj4OkPpbKPbtKZ7ZLIH89bsTqk7HqaAeyIxAb164t719JXHTGiNTX9fRrrwhovyLoqu_SLXt2usdQdK9qJm6FRAkdfoBPa8nWct0xWgw73M6cgwhiZ8lPY4goXx750tdQfAZrN/w0/a699d8037e.jpg';
-    var date = new Date(entry.published.$t).toLocaleDateString();
-    
-    html += '<div class="index-post">';
-    html += '  <div class="content-image-box">';
     html += '    <a href="' + url + '"><img class="content-image-size" src="' + thumb + '" alt="' + title + '"/></a>';
     html += '  </div>';
     html += '  <div class="content-post-info">';

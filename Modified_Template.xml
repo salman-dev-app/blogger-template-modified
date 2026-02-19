@@ -65,7 +65,7 @@
 /*!************************************************
  * Blogger Template Style
  * Name      : Animed
- * Version   : Free Version - https://www.temabanua.com/p/licenses.html
+ * Version   : Demo Version
  * Creator   : Rian seo - https://www.temabanua.com
  **************************************************/
 
@@ -598,7 +598,7 @@
                <b:include name='icon-bookmark'/>
              </div>
              <div class='item-link-number'>
-               <span><i>0</i></span>
+               <span>0</span>
              </div>
            </label>
          </div>

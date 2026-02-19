@@ -1534,7 +1534,7 @@
                 </h1>
               </b:if>
             </b:includable>
-                        <b:includable id='postVideo'>
+                                                <b:includable id='postVideo'>
                           <div class='content-entry-video'>
                   <div class='content-height-cover'/>
                   <div class='content-video-player'>
@@ -1542,10 +1542,15 @@
                       <div class='content-video-image'>
                         <figure class='widget-background-item'>
                           <div class='widget--background-preload'>
-                        <img class='lazyload' expr:alt='data:post.title' expr:data-src='data:post.featuredImage' expr:data-srcset='sourceSet(data:post.featuredImage, [1200, 800], &quot;3:2&quot;)' sizes='1200px' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAD6AAAA+gBtXtSawAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAYSURBVCiRY0xISOBgoAAwUaJ51IBhYwAAuQABOsYCprwAAAAASUVORK5CYII='/>
+                        <img class='lazyload' expr:alt='data:post.title' expr:data-src='data:post.featuredImage' expr:data-srcset='sourceSet(data:post.featuredImage, [1200, 800], "3:2")' sizes='1200px' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAD6AAAA+gBtXtSawAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAYSURBVCiRY0xISOBgoAAwUaJ51IBhYwAAuQABOsYCprwAAAAASUVORK5CYII='/>
                           </div>
                         </figure>
                       </div>
+                      <b:if cond='data:post.body contains "data-embed="'>
+                        <b:with value='data:post.body.split("data-embed=\"")[1].split("\"")[0]' var='videoId'>
+                          <div class='video' expr:data-embed='data:videoId'/>
+                        </b:with>
+                      </b:if>
                     </div>
                   </div>
                 </div>
@@ -2057,10 +2062,36 @@ if(a.toLowerCase().includes("episode")){
   var epNum = parts[1] ? "Episode " + parts[1].trim() : "";
   displayTitle = animeTitle + " - " + epNum;
 }
+var displayTitle = a;
+if(a.toLowerCase().includes("episode")){
+  var parts = a.toLowerCase().split("episode");
+  var epNum = parts[1] ? "Episode " + parts[1].trim() : "";
+  displayTitle = animeTitle + " - " + epNum;
+}
 o+='<a class="episode-item-vertical'+activeClass+'" href="'+epUrl+'"><div class="ep-thumb-vertical"><img src="'+epThumb+'" alt="'+a+'"/></div><div class="ep-info-vertical"><div class="ep-title-vertical">'+displayTitle+'</div><div class="ep-meta-vertical"><span class="ep-label">'+animeTitle+'</span><span class="ep-time">'+epDate+'</span></div></div></a>'}m.innerHTML=o+="</div>"},msRandomIndex=function(e){a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/default"+l+"?alt=json-in-script&orderby=published&start-index=1&max-results=500&callback=msRelatedPosts")},a(v.homePageUrl.replace(/\/$/,"")+"/feeds/posts/summary"+l+"?alt=json-in-script&orderby=published&max-results=0&callback=msRandomIndex")}();
 //]]>	  
 </script>
     </b:if>
     <b:template-script async='true' name='indie' version='1.0.0'/>
-  </body>
+  
+<script type='text/javascript'>//<![CDATA[
+(function() {
+  var v = document.getElementsByClassName("video");
+  for (var n = 0; n < v.length; n++) {
+    var p = document.createElement("div");
+    p.innerHTML = '<img class="lazyload" src="https://i.ytimg.com/vi/' + v[n].dataset.embed + '/sddefault.jpg">';
+    p.onclick = function() {
+      var s = document.createElement("iframe");
+      s.setAttribute("allowfullscreen", "");
+      s.setAttribute("frameborder", "0");
+      s.setAttribute("src", "https://www.youtube.com/embed/" + this.parentNode.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
+      this.parentNode.innerHTML = "";
+      this.parentNode.appendChild(s);
+    };
+    v[n].appendChild(p);
+  }
+})();
+//]]>
+</script>
+</body>
 </html>

@@ -1,17 +1,17 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=200&text=blogger%20template%20modified&fontSize=45&fontColor=fff&animation=fadeIn&fontAlignY=40&desc=Modified%20Blogger%20template%20with%20custom%20sections%20a&descAlignY=58&descSize=13"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=200&text=Blogger%20Template%20Modified&fontSize=45&fontColor=fff&animation=fadeIn&fontAlignY=40&desc=Custom%20Blogger%20Theme&descAlignY=55&descSize=18"/>
 </div>
 
 <p align="center">
   <a href="https://github.com/salman-dev-app/blogger-template-modified">
-    <img src="https://readme-typing-svg.demolab.com?font=Tagesschrift&size=22&duration=2000&pause=800&color=F7F7F7&background=FF001400&center=true&vCenter=true&multiline=true&width=500&height=80&lines=blogger-template-modified...;Built+by+Md+Salman+Biswas" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Tagesschrift&size=25&duration=2000&pause=800&color=F7F7F7&background=FF001400&center=true&vCenter=true&multiline=true&width=500&height=80&lines=Modern+Blogger+Design;Custom+Sections+&+Styling;Optimized+for+Performance" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML_CSS-🎨_Project-FF6B6B?style=for-the-badge&logo=codesandbox&logoColor=white" />
+  <img src="https://img.shields.io/badge/Type-Blogger%20Theme-FF6B6B?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/github/last-commit/salman-dev-app/blogger-template-modified?style=for-the-badge&color=00D9FF&label=LAST%20UPDATED&logo=github&logoColor=white" />
-  <img src="https://img.shields.io/badge/Author-Md_Salman_Biswas-4ECDC4?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Blogger-4ECDC4?style=for-the-badge&logoColor=white" />
 </p>
 
 ---
@@ -19,85 +19,93 @@
 <div align="center">
   <h3>
     <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Star" width="25" height="25" style="vertical-align: middle;" />
-    Modified Blogger template with custom sections and advanced styling
+    A heavily customized and enhanced Blogger template with modern sections, styles, and performance optimizations.
   </h3>
 </div>
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pushpin.png" alt="Pushpin" width="30" height="30" style="vertical-align: middle;" /> Overview
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Americas.png" alt="Globe" width="30" height="30" style="vertical-align: middle;" /> Quick Links
 
 <p align="center">
-  <strong>blogger-template-modified</strong> — Modified Blogger template with custom sections and advanced styling
-  <br/>
-  Developed and maintained by <a href="https://github.com/salman-dev-app"><strong>Md Salman Biswas</strong></a> — Senior Software Engineer.
+  <a href="https://github.com/salman-dev-app/blogger-template-modified">
+    <img src="https://img.shields.io/badge/View-Repository-FF6B6B?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://github.com/salman-dev-app/blogger-template-modified/issues">
+    <img src="https://img.shields.io/badge/Report-Issue-4ECDC4?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="mailto:mdsalmanhelp@gmail.com">
+    <img src="https://img.shields.io/badge/Contact-Developer-00D9FF?style=for-the-badge&logo=minutemailer&logoColor=white" />
+  </a>
 </p>
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="30" height="30" style="vertical-align: middle;" /> Features & Highlights
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="30" height="30" style="vertical-align: middle;" /> Core Features
 
-<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Clean Architecture</strong> — Structured and maintainable codebase following best practices</p>
-<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>High Performance</strong> — Optimized for speed and minimal resource consumption</p>
-<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Scalable Design</strong> — Built to grow with enterprise-grade patterns</p>
-<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Easy Setup</strong> — Simple installation and configuration process</p>
-<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Open Source</strong> — Community contributions are welcome!</p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Custom sections with modern design</strong></p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Mobile-first responsive layout</strong></p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>SEO-optimized structure</strong></p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Fast-loading optimized assets</strong></p>
+<p><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="18" height="18" style="vertical-align: middle;" /> <strong>Easy to install and configure</strong></p>
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Wrench" width="30" height="30" style="vertical-align: middle;" /> Tech Stack
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" alt="Light Bulb" width="30" height="30" style="vertical-align: middle;" /> Why This Project?
+
+**<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" alt="🔍" width="20" height="20" style="vertical-align: middle;" /> SEO Ready**  
+Built-in meta tags, schema markup, and canonical URLs boost your search rankings.
+
+**<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" alt="📱" width="20" height="20" style="vertical-align: middle;" /> Mobile First**  
+Fully responsive design that looks stunning on every device.
+
+**<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="🚀" width="20" height="20" style="vertical-align: middle;" /> Easy Setup**  
+One-click installation with detailed configuration documentation.
+
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Wrench" width="30" height="30" style="vertical-align: middle;" /> Technical Ecosystem
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,bootstrap&theme=dark" />
+
+### Frontend Development
+<img src="https://skillicons.dev/icons?i=html,css,js,figma&theme=dark" />
+
 </div>
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="30" height="30" style="vertical-align: middle;" /> Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/salman-dev-app/blogger-template-modified.git
-
-# Navigate to project directory
-cd blogger-template-modified
-
-# Install dependencies (if applicable)
-# Python
-pip install -r requirements.txt
-
-# Node.js
-npm install
-
-# Run the project
-# Follow project-specific instructions below
-```
-
----
-
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Analytics" width="30" height="30" style="vertical-align: middle;" /> Repository Stats
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Analytics" width="30" height="30" style="vertical-align: middle;" /> Repository Analytics
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=salman-dev-app&theme=react-dark&area=true&hide_border=true&bg_color=0D1117&color=FF6B6B&line=4ECDC4" alt="Activity Graph" width="100%">
-</div>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=salman-dev-app&show_icons=true&theme=react&hide_border=true&bg_color=0D1117&title_color=FF6B6B&icon_color=4ECDC4&text_color=ffffff" alt="GitHub Stats" width="80%">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=salman-dev-app&repo=blogger-template-modified&theme=react&hide_border=true&bg_color=0D1117&title_color=FF6B6B&icon_color=4ECDC4" alt="Repo Stats" />
 </div>
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Americas.png" alt="Globe" width="30" height="30" style="vertical-align: middle;" /> Connect With The Author
+<div align="center">
+  <h2>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Briefcase.png" alt="Briefcase" width="35" height="35" style="vertical-align: middle;" />
+    Developed by Md Salman Biswas
+  </h2>
+</div>
 
 <p align="center">
-  <a href="mailto:mdsalmanhelp0@gmail.com">
-    <img src="https://img.shields.io/badge/Hire_Me-Send_Email-FF6B6B?style=for-the-badge&logo=minutemailer&logoColor=white" />
+  <a href="mailto:mdsalmanhelp@gmail.com">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=63A4FF&center=true&vCenter=true&width=500&lines=Senior+Software+Engineer;Available+for+New+Opportunities;Let's+Build+Something+Amazing!" alt="Typing SVG" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/salman-dev-app">
+    <img src="https://img.shields.io/badge/View-My_Profile-FF6B6B?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="mailto:mdsalmanhelp@gmail.com">
+    <img src="https://img.shields.io/badge/Hire_Me-Send_Email-4ECDC4?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
   <a href="https://wa.me/8801840933137">
-    <img src="https://img.shields.io/badge/WhatsApp-Direct_Chat-4ECDC4?style=for-the-badge&logo=whatsapp&logoColor=white" />
-  </a>
-  <a href="https://t.me/Otakuosenpai">
-    <img src="https://img.shields.io/badge/Telegram-Quick_Connect-63A4FF?style=for-the-badge&logo=telegram&logoColor=white" />
+    <img src="https://img.shields.io/badge/WhatsApp-Direct_Chat-00D9FF?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
 </p>
 
@@ -106,29 +114,14 @@ npm install
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="Scroll" width="30" height="30" style="vertical-align: middle;" /> License
 
 <div align="center">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white" />
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white" />
+  </a>
 </div>
 
 <p align="center">
-  This project is licensed under the MIT License — feel free to use, modify, and contribute.
+  This project is licensed under the MIT License — feel free to use and contribute.
 </p>
-
----
-
-<div align="center">
-  <h2>
-    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Party%20Popper.png" alt="Party" width="30" height="30" style="vertical-align: middle;" />
-    Thank You for Visiting!
-  </h2>
-
-  <a href="https://github.com/salman-dev-app">
-    <img src="https://img.shields.io/badge/VISIT-MY_GITHUB_PROFILE-FF6B6B?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-
-  <br/><br/>
-
-  <img src="https://readme-typing-svg.demolab.com?font=Google+Sans&weight=600&size=22&pause=1000&color=FF6B6B&center=true&vCenter=true&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Md+Salman+Biswas;Star+this+repo+if+you+like+it!;Let%27s+build+together!" alt="Typing SVG" />
-</div>
 
 ---
 
@@ -136,7 +129,7 @@ npm install
   <p>© 2024-2026 Md Salman Biswas · All rights reserved</p>
   <p>
     <a href="https://github.com/salman-dev-app">
-      <img src="https://img.shields.io/badge/Profile_Status-Active-4ECDC4?style=flat" alt="Status" style="vertical-align: middle;">
+      <img src="https://img.shields.io/badge/Profile_Status-Active-4ECDC4?style=flat" alt="Status" />
     </a>
   </p>
   <p>Engineered by <a href="https://github.com/salman-dev-app">Md Salman Biswas</a></p>
